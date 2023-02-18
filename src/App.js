@@ -4,14 +4,17 @@ import dateFormat from "dateformat";
 import "./App.css";
 import { translatedBillMonth } from "./TranslatedBillMonth";
 
+const billMonth = (param) => {
+  return dateFormat(param.billDate, "mmmm");
+};
+
 const DropdownMenu = ({ value, options, onChange }) => {
   return (
     <select value={value} onChange={onChange} className="dropdown">
       {options.map((option) => {
-        const billMonth = dateFormat(option.billDate, "mmmm");
         return (
           <option key={option.billDate} value={option.billDate}>
-            Factura {translatedBillMonth(billMonth)}
+            Factura {translatedBillMonth(billMonth(option))}
           </option>
         );
       })}
@@ -19,11 +22,9 @@ const DropdownMenu = ({ value, options, onChange }) => {
   );
 };
 const DisplayedOption = ({ option }) => {
-  const billMonth = dateFormat(option.billDate, "mmmm");
-
   return (
     <div className="invoiceDetails">
-      <div>Factura {translatedBillMonth(billMonth)}</div>
+      <div>Factura {translatedBillMonth(billMonth(option))}</div>
       <div>
         {"Due: " + option.amountDue.value + " " + option.amountDue.unit}
       </div>
