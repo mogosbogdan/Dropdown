@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { options } from "./options";
+import "./App.css";
 
 const DropdownMenu = ({ value, options, onChange }) => {
   return (
@@ -14,7 +15,7 @@ const DropdownMenu = ({ value, options, onChange }) => {
 };
 
 const DisplayedOption = ({ option }) => {
-  return <div>Selected option: {option.label}</div>;
+  return <div style={{ marginTop: 20 }}>Selected option: {option.label}</div>;
 };
 
 const SelectDropdown = () => {
@@ -27,7 +28,7 @@ const SelectDropdown = () => {
   };
 
   return (
-    <div>
+    <div className="App">
       <DropdownMenu
         value={selectedOption.value}
         options={options}
