@@ -1,3 +1,11 @@
 .App {
   padding: 20px;
 }
+
+.dropdown {
+  margin-left: 20px;
+}
+
+.invoiceDetails {
+  margin-top: 20px;
+}
