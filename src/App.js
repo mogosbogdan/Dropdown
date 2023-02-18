@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { options } from "./options";
 
-function App() {
+const DropdownMenu = ({ value, options, onChange }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <select value={value} onChange={onChange}>
+      {options.map((option) => (
+        <option key={option.value} value={option.value}>
+          {option.label}
+        </option>
+      ))}
+    </select>
+  );
+};
+
+const DisplayedOption = ({ option }) => {
+  return <div>Selected option: {option.label}</div>;
+};
+
+const SelectDropdown = () => {
+  const [selectedOption, setSelectedOption] = useState(options[0]);
+
+  const handleSelectChange = (event) => {
+    const value = event.target.value;
+    const option = options.find((option) => option.value === value);
+    setSelectedOption(option);
+  };
+
+  return (
+    <div>
+      <DropdownMenu
+        value={selectedOption.value}
+        options={options}
+        onChange={handleSelectChange}
+      />
+      <DisplayedOption option={selectedOption} />
     </div>
   );
-}
+};
 
-export default App;
+export default SelectDropdown;
