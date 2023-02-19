@@ -1,30 +1,34 @@
 import dateFormat from "dateformat";
 
 export const translatedBillMonth = (month) => {
-  if (month === "January") {
-    return "Ianuarie";
-  } else if (month === "February") {
-    return "Februarie";
-  } else if (month === "March") {
-    return "Martie";
-  } else if (month === "April") {
-    return "Aprilie";
-  } else if (month === "May") {
-    return "Mai";
-  } else if (month === "June") {
-    return "Iunie";
-  } else if (month === "July") {
-    return "Iulie";
-  } else if (month === "August") {
-    return "August";
-  } else if (month === "September") {
-    return "Septembrie";
-  } else if (month === "October") {
-    return "Octombrie";
-  } else if (month === "November") {
-    return "Noiembrie";
-  } else if (month === "December") {
-    return "Decembrie";
+  switch (month) {
+    case "January":
+      return "Ianuarie";
+    case "February":
+      return "Februarie";
+    case "March":
+      return "Martie";
+    case "April":
+      return "Aprilie";
+    case "May":
+      return "Mai";
+    case "June":
+      return "Iunie";
+    case "July":
+      return "Iulie";
+    case "August":
+      return "August";
+    case "September":
+      return "Septembrie";
+    case "October":
+      return "Octombrie";
+    case "November":
+      return "Noiembrie";
+    case "December":
+      return "Decembrie";
+    default:
+      <p color="red">Error</p>;
+      break;
   }
 };
 
