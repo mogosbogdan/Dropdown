@@ -1,11 +1,15 @@
 .App {
   padding: 20px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .dropdown {
   margin-left: 20px;
+  align-self: center;
 }
 
 .invoiceDetails {
   margin-top: 20px;
+  width: 200px;
 }
