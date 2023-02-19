@@ -8,13 +8,20 @@ const billMonth = (param) => {
   return dateFormat(param.billDate, "mmmm");
 };
 
+const billYear = (param) => {
+  return dateFormat(param.billDate, "yyyy");
+};
+
 const DropdownMenu = ({ value, options, onChange }) => {
   return (
     <select value={value} onChange={onChange} className="dropdown">
       {options.map((option) => {
         return (
           <option key={option.billDate} value={option.billDate}>
-            Factura {translatedBillMonth(billMonth(option))}
+            {"Factura " +
+              translatedBillMonth(billMonth(option)) +
+              " " +
+              billYear(option)}
           </option>
         );
       })}
@@ -24,7 +31,10 @@ const DropdownMenu = ({ value, options, onChange }) => {
 const DisplayedOption = ({ option }) => {
   return (
     <div className="invoiceDetails">
-      <div>Factura {translatedBillMonth(billMonth(option))}</div>
+      <div>
+        Factura{" "}
+        {translatedBillMonth(billMonth(option)) + " " + billYear(option)}
+      </div>
       <div>
         {"Due: " + option.amountDue.value + " " + option.amountDue.unit}
       </div>
@@ -41,7 +51,6 @@ const SelectDropdown = () => {
     const value = event.target.value;
     const option = options.find((option) => option.billDate === value);
     setSelectedOption(option);
-    console.log(selectedOption);
   };
 
   return (
