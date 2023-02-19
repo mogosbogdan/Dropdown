@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { options } from "./options";
 import "./App.css";
-import {
-  translatedBillMonth,
-  billMonth,
-  billYear,
-} from "./TimeConverter";
+import { translatedBillMonth, billMonth, billYear } from "./TimeConverter";
+
+const renderedInvoice = (param) => {
+  return (
+    "Factura " + translatedBillMonth(billMonth(param)) + " " + billYear(param)
+  );
+};
 
 const DropdownMenu = ({ value, options, onChange }) => {
   return (
@@ -13,10 +15,7 @@ const DropdownMenu = ({ value, options, onChange }) => {
       {options.map((option) => {
         return (
           <option key={option.billDate} value={option.billDate}>
-            {"Factura " +
-              translatedBillMonth(billMonth(option)) +
-              " " +
-              billYear(option)}
+            {renderedInvoice(option)}
           </option>
         );
       })}
@@ -26,10 +25,7 @@ const DropdownMenu = ({ value, options, onChange }) => {
 const DisplayedOption = ({ option }) => {
   return (
     <div className="invoiceDetails">
-      <div>
-        Factura{" "}
-        {translatedBillMonth(billMonth(option)) + " " + billYear(option)}
-      </div>
+      <div>{renderedInvoice(option)}</div>
       <div>
         {"Due: " + option.amountDue.value + " " + option.amountDue.unit}
       </div>
