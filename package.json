@@ -1,7 +1,7 @@
 {
-  "name": "rdop",
+  "name": "Dropdown",
   "version": "0.1.0",
-  "homepage": "https://mogosbogdan.github.io/rdop",
+  "homepage": "https://mogosbogdan.github.io/Dropdown",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
