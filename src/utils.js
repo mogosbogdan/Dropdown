@@ -35,3 +35,9 @@ export const billMonth = (param) => {
 export const billYear = (param) => {
   return dateFormat(param.billDate, "yyyy");
 };
+
+export const renderedInvoice = (param) => {
+  return (
+    "Factura " + translatedBillMonth(billMonth(param)) + " " + billYear(param)
+  );
+};

@@ -1,39 +1,8 @@
 import React, { useState } from "react";
 import { options } from "./options";
+import DropdownMenu from "./DropdownMenu";
+import DisplayedOption from "./DisplayedOption";
 import "./App.css";
-import { translatedBillMonth, billMonth, billYear } from "./TimeConverter";
-
-const renderedInvoice = (param) => {
-  return (
-    "Factura " + translatedBillMonth(billMonth(param)) + " " + billYear(param)
-  );
-};
-
-const DropdownMenu = ({ value, options, onChange }) => {
-  return (
-    <select value={value} onChange={onChange} className="dropdown">
-      {options.map((option) => {
-        return (
-          <option key={option.billDate} value={option.billDate}>
-            {renderedInvoice(option)}
-          </option>
-        );
-      })}
-    </select>
-  );
-};
-const DisplayedOption = ({ option }) => {
-  return (
-    <div className="invoiceDetails">
-      <div>{renderedInvoice(option)}</div>
-      <div>
-        {"Due: " + option.amountDue.value + " " + option.amountDue.unit}
-      </div>
-      <div>{"Bill: " + option.billNo}</div>
-      <div>{"ID: " + option.id}</div>
-    </div>
-  );
-};
 
 const SelectDropdown = () => {
   const [selectedOption, setSelectedOption] = useState(options[0]);
