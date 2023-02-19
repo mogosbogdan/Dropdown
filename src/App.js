@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import { options } from "./options";
-import dateFormat from "dateformat";
 import "./App.css";
-import { translatedBillMonth } from "./TranslatedBillMonth";
-
-const billMonth = (param) => {
-  return dateFormat(param.billDate, "mmmm");
-};
-
-const billYear = (param) => {
-  return dateFormat(param.billDate, "yyyy");
-};
+import {
+  translatedBillMonth,
+  billMonth,
+  billYear,
+} from "./TimeConverter";
 
 const DropdownMenu = ({ value, options, onChange }) => {
   return (
